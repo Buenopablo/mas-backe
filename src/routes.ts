@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import {UserController} from './controller/UserController';
 import {ActivyController} from './controller/ActivyController';
+import {CourseController} from './controller/CourseUnitController';
 
 
 interface UserRequest {
@@ -11,12 +12,13 @@ interface UserRequest {
 
 const userController = new UserController();
 const activyController = new ActivyController();
+const courseController = new CourseController();
 
 const routes = Router();
 
 routes.post('/user', userController.create);
 routes.post('/activy', activyController.createActivy);
-routes.post('/courseUnit', () => console.log('Course unit router'));
+routes.post('/courseUnit', courseController.createCourse);
 
 
 export default routes;

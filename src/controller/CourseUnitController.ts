@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {CreateCourseUnitService} from '../services/CreateCourseUnitService';
 
-class courseController {
+class CourseController {
 
     async createCourse(request: Request, response: Response) {
 
@@ -16,4 +16,4 @@ class courseController {
 
 }
 
-export {courseController}
+export {CourseController}
