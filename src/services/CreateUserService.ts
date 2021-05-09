@@ -17,23 +17,24 @@ class CreateUserService {
         const checkUserExists = await usersRepository.findOne({email})
 
         if(checkUserExists) {
-            throw new Error('Email adrres alread exist');
+            return {
+                error:'Email adrres alread exist'
+    
+            }      
         }
-
         const hashedPassword = await hash(password, 8);
 
-        const user = {
+        const user =  usersRepository.create({
             name,
             email,
             password: hashedPassword
-        }
+        });
 
-        await usersRepository.save(user);
-
+        await usersRepository.save(user); 
         return user;
 
 
-    }
+    } 
 }
 
-export {CreateUserService}
+export {CreateUserService};

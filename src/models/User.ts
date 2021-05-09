@@ -10,9 +10,7 @@ class User {
             this.id = uuid();
 
         }
-
     }
-
     @PrimaryColumn()
     readonly id: string;
 

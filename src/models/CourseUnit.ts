@@ -2,7 +2,7 @@ import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn} from "typeo
 import {v4 as uuid} from "uuid";
 import { Activy } from "./Activy";
 
-@Entity("courseUnits")
+@Entity("course_units")
 class CourseUnit {
 
     constructor() {

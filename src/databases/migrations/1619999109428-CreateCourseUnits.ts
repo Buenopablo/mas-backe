@@ -23,6 +23,7 @@ export class CreateCourseUnits1619999109428 implements MigrationInterface {
                     {
                         name: "created_at",
                         type: "timesTamp",
+                        default: "now()",
                         
                     }
                 ]
