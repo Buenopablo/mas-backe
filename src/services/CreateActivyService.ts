@@ -16,14 +16,17 @@ class CreateActivyService {
         const checkActiveExists =  await activysRepository.findOne({name});
         
         if(checkActiveExists) {
-            throw new Error('Name Activy adrres alread exist')
+            return {
+                error:'Name Activy adrres alread exist'
+
+            }
         }
 
-        const activy = {
+        const activy = activysRepository.create({
             name,
             course_unit_id,
             activy_date
-        }
+        });
 
         await activysRepository.save(activy);
 

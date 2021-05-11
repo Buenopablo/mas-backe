@@ -15,13 +15,15 @@ class CreateCourseUnitService {
         const checkCourseExist = await coursesRepository.findOne({name})
 
         if(checkCourseExist) {
-            throw new Error('Course name adrres alread exist')
+            return {
+                error:'Course name adrres alread exist'
+            }
         }
 
-        const course = {
+        const course = coursesRepository.create({
             name,
             description
-        }
+        });
 
         await coursesRepository.save(course);
 

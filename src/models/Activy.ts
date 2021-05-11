@@ -9,9 +9,7 @@ class Activy {
         if(!this.id) {
             this.id = uuid();
         }
-
     }
-
     @PrimaryColumn()
     readonly id: string;
 
