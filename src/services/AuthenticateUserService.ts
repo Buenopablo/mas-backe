@@ -35,6 +35,7 @@ class AuthenticateUserService {
         
 
         const token = sign({"role":"user"}, secret, {
+            // algorithm:'RS256',
             subject: user.id,
             expiresIn
         })

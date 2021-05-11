@@ -2,3 +2,5 @@
 .env
 ormconfig.json
 yarn-error.log
+private-key.pem
+public-key.pem
