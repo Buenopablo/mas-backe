@@ -3,35 +3,29 @@ import {Activy} from '../models/Activy';
 
 interface ActivyData {
     name: string;
-    course_unit_id: string;
     activy_date: string;
+    grade: number;
+    courseUnitId: string;
 }
 
 class CreateActivyService {
 
-    public async execute({name,course_unit_id,activy_date}: ActivyData) {
+    async execute({name,activy_date,grade, courseUnitId}:ActivyData) {
 
-        const activysRepository = getRepository(Activy);
+        const activyRepository = getRepository(Activy);
 
-        const checkActiveExists =  await activysRepository.findOne({name});
-        
-        if(checkActiveExists) {
-            return {
-                error:'Name Activy adrres alread exist'
-
-            }
-        }
-
-        const activy = activysRepository.create({
+        const activy = activyRepository.create({
             name,
-            course_unit_id,
-            activy_date
+            activy_date,
+            grade,
+            courseUnitId
         });
 
-        await activysRepository.save(activy);
+        await activyRepository.save(activy);
 
         return activy;
+
     }
 }
 
-export {CreateActivyService}
+export {CreateActivyService};
