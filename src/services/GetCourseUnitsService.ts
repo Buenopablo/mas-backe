@@ -9,6 +9,8 @@ class GetCourseUnitsService {
 
     public async execute({id}:UserId) {
 
+        console.log('Id do usuário da Uninade: ' + id)
+
         const courseUnitRepository = getRepository(CourseUnit)
 
         const coursesUnits = await courseUnitRepository.find();
